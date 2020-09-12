@@ -453,6 +453,7 @@ function InitializeComponent
 
 function DetectScaleAddType{
   Add-Type @'
++
   using System; 
   using System.Runtime.InteropServices;
   using System.Drawing;
