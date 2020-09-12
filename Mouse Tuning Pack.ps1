@@ -604,7 +604,7 @@ function About {
   $aboutForm.Text          = "Mouse Tuning Pack 2.0"
   $aboutForm.Add_Load($aboutForm_Load)
   # About PictureBox
-  $icon = [System.Drawing.Bitmap]::FromFile('.\Images\favicon.ico')
+  $icon = ([System.Drawing.Icon]$resources.'$this.Icon')
   $aboutFormImage.Image    = $icon
   $aboutFormImage.Location = "35, 15"
   $aboutFormImage.Size     = "64, 64"
