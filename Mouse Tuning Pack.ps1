@@ -657,16 +657,16 @@ $ButtonLetsGo.Add_Click{
         Write-Host "Die erstellung von Wiederherstellungspunkten wurde aktiviert"
         Checkpoint-Computer -Description "TGF_Mouse_Tuning_Pack_2.0-$(Get-Date)"
         $Date = Get-Date
-        Write-Host "Der Wiederherstellungspunkt wurde erstellt. Er trï¿½gt den Namen: TGF_Mouse_Tuning_Pack_2.0-$(Get-Date)" -ForegroundColor Green
+        Write-Host "Der Wiederherstellungspunkt wurde erstellt. Er tr�gt den Namen: TGF_Mouse_Tuning_Pack_2.0-$(Get-Date)" -ForegroundColor Green
     }
     if ($CheckBoxRegBackup.Checked){
         if ($Language -eq "de-DE"){
-            $Backup = [System.Windows.Forms.MessageBox]::Show("Ein Backup der Registry wird ausgefï¿½hrt. Eine Normale Windows Registry ist im Normalfall ca. 500mb Groï¿½. Das Backup wird unter C:\RegBack\ Gespeichert.","TGF Mouse Tuning Pack 2.0 by MinersWin",'OK','Info')
+            $Backup = [System.Windows.Forms.MessageBox]::Show("Ein Backup der Registry wird ausgef�hrt. Eine Normale Windows Registry ist im Normalfall ca. 500mb Gro�. Das Backup wird unter C:\RegBack\ Gespeichert.","TGF Mouse Tuning Pack 2.0 by MinersWin",'OK','Info')
         } else {
             $Backup = [System.Windows.Forms.MessageBox]::Show("The registry is backed up. A normal Windows registry is usually about 500mb in size. The backup is saved under C:\RegBack\.","TGF Mouse Tuning Pack 2.0 by MinersWin",'OK','Info')
         }
         mkdir C:\RegBack\        
-        Write-Host "Ein Backup der Registry wird ausgefï¿½hrt.... Eine Normale Windows Registry ist im Normalfall ca. 500mb Groï¿½. Das Backup wird unter C:\RegBack\ Gespeichert." -ForegroundColor Green
+        Write-Host "Ein Backup der Registry wird ausgef�hrt.... Eine Normale Windows Registry ist im Normalfall ca. 500mb Gro�. Das Backup wird unter C:\RegBack\ Gespeichert." -ForegroundColor Green
         reg export HKCR C:\RegBack\HKLM.Reg /y
         reg export HKCU C:\RegBack\HKCU.Reg /y
         reg export HKLM C:\RegBack\HKCR.Reg /y
@@ -732,7 +732,7 @@ function About {
   $aboutForm.Text          = "Mouse Tuning Pack 2.0"
   $aboutForm.Add_Load($aboutForm_Load)
   # About PictureBox
-  $icon = [System.Drawing.Bitmap]::FromFile('.\Images\favicon.ico')
+  $icon = ([System.Drawing.Icon]$resources.'$this.Icon')
   $aboutFormImage.Image    = $icon
   $aboutFormImage.Location = "35, 15"
   $aboutFormImage.Size     = "64, 64"
@@ -771,9 +771,9 @@ function German{
 
   $CheckBoxRestorePoint.Text = "Wiederherstellungspunkt"
   $CheckBoxRegBackup.Text = "Registry Backup"
-  $CheckBoxSnap.Text = "Snappe auf Standart Knï¿½pfe"
+  $CheckBoxSnap.Text = "Snappe auf Standart Kn�pfe"
   $CheckBoxMouseSwap.Text = "Mausbuttons tauschen"
-  [System.Windows.Forms.MessageBox]::Show("Deutsches Sprachpacket ausgewÃ¤lt.","TGF Maus Tuning Pack 2.0","OK","Info")
+  [System.Windows.Forms.MessageBox]::Show("Deutsches Sprachpacket ausgew�hlt.","TGF Maus Tuning Pack 2.0","OK","Info")
   $Language = "de-DE"
 }
 
@@ -1302,7 +1302,7 @@ function Advanced-Form{
 
 
   function Set-AdvancedVariables{
-      $AcceptChanges = [System.Windows.Forms.MessageBox]::Show("Bist du dir sicher, dass du die �nderungen �bernehmen willst.","TGF Mouse Tuning Pack 2.0","YesNo")
+      $AcceptChanges = [System.Windows.Forms.MessageBox]::Show("Bist du dir sicher, dass du die �nderungen �bernehmen willst.","TGF Mouse Tuning Pack 2.0","YesNo")
       $AcceptChanges
       if ($AcceptChanges -eq "Yes"){
           $SavedDoubleClickHeight = $TextBoxAdvancedDoubleClickHeight.Text
